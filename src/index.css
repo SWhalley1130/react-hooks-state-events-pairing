@@ -10,3 +10,11 @@ body {
 .App {
   text-align: center;
 }
+
+.bottom-border 
+{
+  border-bottom: solid rgb(81, 78, 78);
+  border-width: 2px;
+  padding: 10px;
+}
+
