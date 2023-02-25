@@ -1,5 +1,6 @@
 import video from "../data/video.js";
 import Header from "./Header.js";
+import CommentsSection from "./CommentsSection.js";
 
 function App() {
   console.log("Here's your data:", video);
@@ -15,6 +16,7 @@ function App() {
         title="Thinking in React"
       />
       <Header title={video.title} views={video.views} createdAt={video.createdAt} upvotes={video.upvotes} downvotes={video.downvotes}/>
+      <CommentsSection comments={video.comments}/>
     </div>
   );
 }
