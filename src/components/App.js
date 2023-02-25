@@ -7,17 +7,24 @@ function App() {
 
   const [likes, setLikes]=useState(video.upvotes);
   const [dislikes, setDislikes]=useState(video.downvotes);
+  const [isHidden, setIsHidden]=useState(false);
 
-  function handleClick(e)
+  function handleClick(input)
   {
-    if (e.target.textContent.includes("👍"))
+    if (input === 'upvote')
     {
       video.upvotes++;
       setLikes(video.upvotes);
     }
-    else 
+    else if (input == 'downvote')
     {
-      console.log('Getting closer')
+      video.downvotes++;
+      setDislikes(video.downvotes);
+    } 
+    else
+    {
+      console.log('hidden button')
+      setIsHidden(!isHidden)
     }
   }
 
@@ -31,8 +38,8 @@ function App() {
         allowFullScreen
         title="Thinking in React"
       />
-      <Header handleClick={handleClick} title={video.title} views={video.views} createdAt={video.createdAt} upvotes={video.upvotes} downvotes={video.downvotes}/>
-      <CommentsSection comments={video.comments}/>
+      <Header isHidden={isHidden} handleClick={handleClick} title={video.title} views={video.views} createdAt={video.createdAt} upvotes={likes} downvotes={dislikes}/>
+      <CommentsSection isHidden={isHidden} comments={video.comments}/>
     </div>
   );
 }
