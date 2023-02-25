@@ -1,9 +1,9 @@
 import React  from "react";
 
-function Button(props)
+function Button({children, handleClick})
 {
     return (
-        <button>{props.children}</button>
+        <button onClick={handleClick}>{children}</button>
     )
 }
 export default Button;
